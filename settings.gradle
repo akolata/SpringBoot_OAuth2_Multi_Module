@@ -1,0 +1,4 @@
+rootProject.name = 'Spring_OAuth2_Angular'
+
+include 'authorization-server'
+include 'resource-server'

@@ -1,0 +1,15 @@
+# Package Files #
+*.jar
+
+### JetBrains template
+.idea/
+*.iml
+authorization-server/out/
+resource-server/out/
+
+### Gradle template
+.gradle
+build/
+!gradle-wrapper.jar
+
+

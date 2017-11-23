@@ -1,0 +1,9 @@
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+group = 'com.company'
+version = '0.0.1-SNAPSHOT'
+
+
+
+

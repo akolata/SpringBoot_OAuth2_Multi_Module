@@ -38,11 +38,6 @@ public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter
     private DataSource dataSource;
 
     @Override
-    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.tokenKeyAccess("permitAll()").checkTokenAccess("permitAll()");
-    }
-
-    @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.jdbc(dataSource)
                 .withClient(CLIENT_ID)

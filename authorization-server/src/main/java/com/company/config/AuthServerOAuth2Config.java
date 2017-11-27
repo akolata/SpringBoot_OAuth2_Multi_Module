@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -29,6 +30,10 @@ public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter
     private AuthenticationManager authenticationManager;
 
     @Autowired
+    @Qualifier("databaseUserService")
+    private UserDetailsService userDetailsService;
+
+    @Autowired
     @SuppressWarnings("SpringJavaAutowiringInspection")
     private DataSource dataSource;
 
@@ -50,7 +55,8 @@ public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
                 .tokenStore(tokenStore())
-                .authenticationManager(authenticationManager);
+                .authenticationManager(authenticationManager)
+                .userDetailsService(userDetailsService);
     }
 
     @Bean

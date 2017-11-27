@@ -12,6 +12,6 @@ public class AuthorizationServerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AuthorizationServerApplication.class, args);
-        LOGGER.info("ResourceServerApplication works !");
+        LOGGER.info("AuthorizationServerApplication works !");
     }
 }
